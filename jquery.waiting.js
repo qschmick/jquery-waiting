@@ -107,8 +107,8 @@
           if(base.userSettings.fullScreen){
             base.position.height = $(window).outerHeight();
             base.position.width = $(window).outerWidth();
-            base.position.top = $(window)[0].pageYOffset();
-            base.position.left = $(window)[0].pageXOffset();
+            base.position.top = window.pageYOffset;
+            base.position.left = window.pageXOffset;
           } else {
             base.position.height = base.$el.outerHeight();
             base.position.width = base.$el.outerWidth();
@@ -121,26 +121,27 @@
           return base.position;
         };
         base.waitSizing = function(){
-          var size = base.userSettings.size;
-          var dotSize = base.userSettings.dotSize;
-          
-          base.getLeftTopHeightWidth();
-          base.resetPosition();
-          
-          if(size === 0 || (size > (base.position.height - dotSize) || size > (base.position.width - dotSize))){
-            var boxSize = base.userSettings.size;
-            if(base.userSettings.fullScreen){
-              var tempHeight = $('body').outerHeight();
-              var tempWidth = $('body').outerWidth();
-              boxSize = (tempHeight < tempWidth ? tempHeight : tempWidth) - dotSize;
-            } else {
-              boxSize = (base.position.height < base.position.width ? base.position.height : base.position.width) - dotSize;
+            var size = base.userSettings.size;
+            var dotSize = base.userSettings.dotSize;
+              
+            base.getLeftTopHeightWidth();
+            base.resetPosition();
+            var maskHeight = base.position.height;
+            var maskWidth = base.position.width;
+            if(size === 0 || (size > (base.position.height - dotSize) || size > (base.position.width - dotSize))){
+                var boxSize = base.userSettings.size;
+                if(base.userSettings.fullScreen){
+                    maskHeight = $('body').outerHeight();
+                    maskWidth = $('body').outerWidth();
+                    boxSize = Math.min(tempHeight, tempWidth) - dotSize;
+                } else {
+                    boxSize = (base.position.height < base.position.width ? base.position.height : base.position.width) - dotSize;
+                }
+                size = boxSize;
             }
-            size = boxSize;
-          }
-          base.$mask.height(base.position.height).width(base.position.width).offset({top:base.position.top, left:base.position.left});
-          base.$wait.height(size).width(size).offset({top:(base.position.top + (base.position.height/2 - size/2)), left:(base.position.left+ (base.position.width/2 - size/2))}).html('');
-          base.drawCircles(size);
+            base.$mask.height(maskHeight).width(maskWidth).offset({top:base.position.top, left:base.position.left});
+            base.$wait.height(size).width(size).offset({top:(base.position.top + (base.position.height/2 - size/2)), left:(base.position.left+ (base.position.width/2 - size/2))}).html('');
+            base.drawCircles(size);
         };
         
         base.drawCircles = function(size){
