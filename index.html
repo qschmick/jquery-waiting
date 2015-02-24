@@ -94,67 +94,67 @@
 <div>
   <h3>
 <a id="live-examples" class="anchor" href="#live-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Live Examples</h3>
-  <div>
-    <div>
+  <div class="container">
+    <div class="light">
       Here is a basic div holding some text.
     </div>
-    <div>
+    <div class="tall light">
       Here is a long div holding some text.
     </div>
-    <div>
+    <div class="wide light">
       Here is a wide div holding some text.
     </div>
-    <br>
-    <br>
-    Start/Stop
-    
-      These all have light set to true.<br>
+    <br/>
+    <br/>
+    <button id="btnLight">Start/Stop</button>
+    <span>
+      These all have light set to true.<br/>
       <code>
         $('.light').waiting({light:true});
       </code>
+    </span>
     
-    
-    <br>
-    <br>
+    <br/>
+    <br/>
 
-    <div>
+    <div class="many">
       Here is a basic div holding some text.
     </div>
-    <div>
+    <div class="tall many">
       Here is a long div holding some text.
     </div>
-    <div>
+    <div class="wide many">
       Here is a wide div holding some text.
     </div>
-    <br>
-    <br>
-    Start/Stop
-    
-      These all have several rings of dots set using quantity.<br>
+    <br/>
+    <br/>
+    <button id="btnMany">Start/Stop</button>
+    <span>
+      These all have several rings of dots set using quantity.<br/>
       <code>
         $('.many').waiting({quantity:25, circleCount:3});
       </code>
-    
-    <br>
-    <br>
-    <div>
+    </span>
+    <br/>
+    <br/>
+    <div class="small">
       Here is a basic div holding some text.
     </div>
-    <div>
+    <div class="tall small">
       Here is a long div holding some text.
     </div>
-    <div>
+    <div class="wide small">
       Here is a wide div holding some text.
     </div>
-    <br>
-    <br>
-    Start/Stop
-    
-      These all have smaller rings using the size setting and the dots are larger using dotSize.<br>
+    <br/>
+    <br/>
+    <button id="btnSmall">Start/Stop</button>
+    <span>
+      These all have smaller rings using the size setting and the dots are larger using dotSize.<br/>
       <code>
         $('.small').waiting({size:25, dotSize:15});
       </code>
-    
+    </span>
   </div>
 </div>
 
