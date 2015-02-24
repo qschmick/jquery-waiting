@@ -163,6 +163,95 @@
   </div>
 </div>
 
+<div>
+  <span>Or try your own combination:</span>
+  <div class="container">
+    <div class="custom">
+      Here is a basic div holding some text.
+    </div>
+    <div class="tall custom">
+      Here is a long div holding some text.
+    </div>
+    <div class="wide custom">
+      Here is a wide div holding some text.
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <table>
+    <tr>
+      <td>
+        Size:
+      </td>
+      <td>
+        <select id="ddlCustomSize"></select>
+      </td>
+      <td>
+        Quantity:
+      </td>
+      <td>
+        <select id="ddlCustomQuantity"></select>
+      </td>
+      <td>
+        dotSize:
+      </td>
+      <td>
+        <select id="ddlCustomDotSize"></select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        enableReverse:
+      </td>
+      <td>
+        <input type="checkbox" id="chkEnableReverse" />
+      </td>
+      <td>
+        waitMovementIncrement (clockwise):
+      </td>
+      <td>
+        <input type="checkbox" id="chkMovement" checked />
+      </td>
+      <td>
+        fullScreen (blocks whole page):
+      </td>
+      <td>
+        <input type="checkbox" id="chkFullscreen" checked />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Speed:
+      </td>
+      <td>
+        <select id="ddlCustomSpeed"></select>
+      </td>
+      <td>
+        circleCount:
+      </td>
+      <td>
+        <select id="ddlCustomCircleCount"></select>
+      </td>
+      <td>
+        tailPercent:
+      </td>
+      <td>
+        <select id="ddlCustomTailPercent"></select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        light (use light theme):
+      </td>
+      <td>
+        <input type="checkbox" id="chkLight" />
+      </td>
+      <td colspan="4"></td>
+    </tr>
+  </table>
+  <button id="btnCustom">Start/Stop</button>
+</div>
+
 <dl>
   <dt>JQuery.waiting([options])</dt>
   <dd>
@@ -233,6 +322,7 @@
       var light = false;
       var many = false;
       var small = false;
+      var custom = false;
       $('#btnMany').click(function(){
         if(many){
           $('.many').waiting('done');
@@ -257,6 +347,51 @@
         } 
         small = !small;
       });
+      
+      $('#btnCustom').click(function(){
+        if(custom){
+          $('.custom').waiting('done');
+        } else {
+          var size = $('#ddlCustomSize').val();
+          var quantity = $('#ddlCustomQuantity').val();
+          var dotSize = $('#ddlCustomDotSize').val();
+          var enableReverse = $('#chkEnableReverse').is(':checked');
+          var movement = $('#chkMovement').is(':checked');
+          var fullScreen = $('#chkFullscreen').is(':checked');
+          var light = $('#chkLight').is(':checked');
+          var speed = $('#ddlCustomSpeed').val();
+          var circleCount = $('#ddlCustomCircleCount').val();
+          var tailPercent = $('#ddlCustomTailPercent').val();
+          
+          $('.custom').waiting(
+            {
+              size:size,
+              quantity:quantity,
+              dotSize:dotSize,
+              enableReverse:enableReverse,
+              waitMovementIncrementer: movement ? 1 : -1,
+              light: light,
+              fullScreen: fullScreen,
+              speed: speed,
+              circleCount: circleCount,
+              tailPercent: tailPercent
+            }
+          );
+        } 
+        custom = !custom;
+      });
+      for(var i =1; i<=100; i++){
+        $('#ddlCustomSize').append($('<option>', { i*3 : i*3 }).text(i*3));
+        $('#ddlCustomQuantity').append($('<option>', { i : i }).text(i));
+        $('#ddlCustomDotSize').append($('<option>', { i : i }).text(i));
+        if(i<21){
+          $('#ddlCustomSpeed').append($('<option>', { i*50 : i*50 }).text(i*50));
+          $('#ddlCustomCircleCount').append($('<option>', { i : i }).text(i));
+          var perc = (100-(i*))/100;
+          $('#ddlCustomTailPercent').append($('<option>', { perc : perc }).text(perc));
+        }
+       
+      }
     });
   </script>
   </body>
