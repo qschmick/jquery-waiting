@@ -59,6 +59,7 @@
           if(typeof base.$mask !== 'undefined'){
             base.pause();
             base.$mask.remove();
+            base.$el.removeData("waiting");
           }
         };
         base.createWaiting = function(){
