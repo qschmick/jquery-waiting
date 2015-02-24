@@ -23,6 +23,7 @@
         height: 125px;
         width: 125px;
         display: inline-block;
+        border:solid 1px black;
       }
       div.wide{
         width: 250px;
@@ -104,34 +105,58 @@
     <div class="light">
       Here is a basic div holding some text.
     </div>
-    <div class="many">
-      Here is a basic div holding some text.
-    </div>
-    <div class="small">
-      Here is a basic div holding some text.
-    </div>
-    <br/>
-    <br/>
     <div class="tall light">
       Here is a long div holding some text.
+    </div>
+    <div class="wide light">
+      Here is a wide div holding some text.
+    </div>
+    <br/>
+    <button id="btnLight">Start/Stop</button>
+    <span>
+      These all have light set to true.<br/>
+      <code>
+        $('.light').waiting({light:true});
+      </code>
+    </span>
+    
+    <br/>
+    <br/>
+    <div class="many">
+      Here is a basic div holding some text.
     </div>
     <div class="tall many">
       Here is a long div holding some text.
     </div>
-    <div class="tall small">
-      Here is a long div holding some text.
-    </div>
-    <br/>
-    <br/>
-    <div class="wide light">
-      Here is a wide div holding some text.
-    </div>
     <div class="wide many">
       Here is a wide div holding some text.
+    </div>
+    <button id="btnMany">Start/Stop</button>
+    <span>
+      These all have several rings of dots set using quantity.<br/>
+      <code>
+        $('.many').waiting({quantity:25, circleCount:3});
+      </code>
+    </span>
+    <br/>
+    <br/>
+    
+    <div class="small">
+      Here is a basic div holding some text.
+    </div>
+    <div class="tall small">
+      Here is a long div holding some text.
     </div>
     <div class="wide small">
       Here is a wide div holding some text.
     </div>
+    <button id="btnSmall">Start/Stop</button>
+    <span>
+      These all have smaller rings using the size setting and the dots are larger using dotSize.<br/>
+      <code>
+        $('.small').waiting({size:25, dotSize:15});
+      </code>
+    </span>
   </div>
 </div>
 
@@ -202,9 +227,33 @@
   <script src="javascripts/jquery.waiting.js"></script>
   <script type="text/javascript">
     $(function(){
-      $('.light').waiting({light:true});
-      $('.many').waiting({quantity:25, circleCount:3});
-      $('.small').waiting({size:25, dotSize:15});
+      var light = false;
+      var many = false;
+      var small = false;
+      $('#btnMany').click(function(){
+        if(many){
+          $('.many').waiting('done');
+        } else {
+          $('.many').waiting({quantity:25, circleCount:3});
+        } 
+        many = !many;
+      });
+      $('#btnLight').click(function(){
+        if(many){
+          $('.light').waiting('done');
+        } else {
+          $('.light').waiting({light:true});
+        } 
+        many = !many;
+      });
+      $('#btnSmall').click(function(){
+        if(many){
+          $('.small').waiting('done');
+        } else {
+          $('.small').waiting({size:25, dotSize:15});
+        } 
+        many = !many;
+      });
     });
   </script>
   </body>
