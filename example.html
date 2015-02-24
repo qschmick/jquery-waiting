@@ -7,8 +7,9 @@
   <meta name="author" content="Quentin Schmick">
   <style type="text/css">
     div{
-      min-height: 50px;
-      min-width: 50px;
+      height: 125px;
+      width: 125px;
+      display: inline-block;
     }
     div.wide{
       width: 250px;
@@ -17,8 +18,8 @@
       height: 250px;
     }
     div.container{
-      height: 1200px;
-      width: 1200px;
+      height: 600px;
+      width: 800px;
     }
   </style>
 </head>
@@ -35,6 +36,7 @@
       Here is a basic div holding some text.
     </div>
     <br/>
+    <br/>
     <div class="tall light">
       Here is a long div holding some text.
     </div>
@@ -44,6 +46,7 @@
     <div class="tall small">
       Here is a long div holding some text.
     </div>
+    <br/>
     <br/>
     <div class="wide light">
       Here is a wide div holding some text.
@@ -56,12 +59,12 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="/jquery.waiting.js"></script>
+  <script src="jquery.waiting.js"></script>
   <script type="text/javascript">
     $(function(){
       $('.light').waiting({light:true});
       $('.many').waiting({quantity:25, circleCount:3});
-      $('.small').waiting({size:25});
+      $('.small').waiting({size:25, dotSize:15});
     });
   </script>
 </body>
