@@ -162,9 +162,10 @@
     </span>
   </div>
 </div>
-
+<br/>
+<br/>
 <div>
-  <span>Or try your own combination:</span>
+  <h5>Or try your own combination:</h5>
   <div class="container">
     <div class="custom">
       Here is a basic div holding some text.
@@ -381,11 +382,13 @@
         custom = !custom;
       });
       for(var i =1; i<=100; i++){
-        $('#ddlCustomSize').append($('<option>', { (i*3) : (i*3) }).text(i*3));
+        var three = i * 3;
+        $('#ddlCustomSize').append($('<option>', { three : three }).text(three));
         $('#ddlCustomQuantity').append($('<option>', { i : i }).text(i));
         $('#ddlCustomDotSize').append($('<option>', { i : i }).text(i));
         if(i<21){
-          $('#ddlCustomSpeed').append($('<option>', { (i*50) : (i*50) }).text(i*50));
+          var fifty = i * 50;
+          $('#ddlCustomSpeed').append($('<option>', { fifty : fifty }).text(fifty));
           $('#ddlCustomCircleCount').append($('<option>', { i : i }).text(i));
           var perc = (100-(i*))/100;
           $('#ddlCustomTailPercent').append($('<option>', { perc : perc }).text(perc));
