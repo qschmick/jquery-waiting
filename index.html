@@ -14,6 +14,24 @@
     <![endif]-->
 
     <title>Jquery-waiting by qschmick</title>
+    <style type="text/css">
+      div.container{
+        height: 600px;
+        width: 800px;
+      }
+      .container div{
+        height: 125px;
+        width: 125px;
+        display: inline-block;
+      }
+      div.wide{
+        width: 250px;
+      }
+      div.tall{
+        height: 250px;
+      }
+    </style>
+    </style>
   </head>
 
   <body>
@@ -80,6 +98,43 @@
 <h3>
 <a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h3>
 
+<div>
+  <h3>Live Examples</h3>
+  <div class="container">
+    <div class="light">
+      Here is a basic div holding some text.
+    </div>
+    <div class="many">
+      Here is a basic div holding some text.
+    </div>
+    <div class="small">
+      Here is a basic div holding some text.
+    </div>
+    <br/>
+    <br/>
+    <div class="tall light">
+      Here is a long div holding some text.
+    </div>
+    <div class="tall many">
+      Here is a long div holding some text.
+    </div>
+    <div class="tall small">
+      Here is a long div holding some text.
+    </div>
+    <br/>
+    <br/>
+    <div class="wide light">
+      Here is a wide div holding some text.
+    </div>
+    <div class="wide many">
+      Here is a wide div holding some text.
+    </div>
+    <div class="wide small">
+      Here is a wide div holding some text.
+    </div>
+  </div>
+</div>
+
 <dl>
   <dt>JQuery.waiting([options])</dt>
   <dd>
@@ -143,6 +198,14 @@
       </div>
     </div>
 
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="javascripts/jquery.waiting.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.light').waiting({light:true});
+      $('.many').waiting({quantity:25, circleCount:3});
+      $('.small').waiting({size:25, dotSize:15});
+    });
+  </script>
   </body>
 </html>
