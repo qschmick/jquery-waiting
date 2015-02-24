@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Waiting widget example page</title>
+  <meta name="description" content="jQuery Waiting widget example page">
+  <meta name="author" content="Quentin Schmick">
+  <style type="text/css">
+    div{
+      min-height: 50px;
+      min-width: 50px;
+    }
+    div.wide{
+      width: 250px;
+    }
+    div.tall{
+      height: 250px;
+    }
+    div.container{
+      height: 1200px;
+      width: 1200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="light">
+      Here is a basic div holding some text.
+    </div>
+    <div class="many">
+      Here is a basic div holding some text.
+    </div>
+    <div class="small">
+      Here is a basic div holding some text.
+    </div>
+    <br/>
+    <div class="tall light">
+      Here is a long div holding some text.
+    </div>
+    <div class="tall many">
+      Here is a long div holding some text.
+    </div>
+    <div class="tall small">
+      Here is a long div holding some text.
+    </div>
+    <br/>
+    <div class="wide light">
+      Here is a wide div holding some text.
+    </div>
+    <div class="wide many">
+      Here is a wide div holding some text.
+    </div>
+    <div class="wide small">
+      Here is a wide div holding some text.
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="/jquery.waiting.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.light').waiting({light:true});
+      $('.many').waiting({quantity:25, circleCount:3});
+      $('.small').waiting({size:25});
+    });
+  </script>
+</body>
+</html>
