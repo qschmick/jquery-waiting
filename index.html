@@ -1,51 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
 
-    <title>Jquery-waiting by qschmick</title>
-    <style type="text/css">
-      div.container{
-      }
-      .container div{
-        height: 125px;
-        width: 125px;
-        display: inline-table;
-        border:solid 1px black;
-      }
-      div.wide{
-        width: 250px;
-      }
-      div.tall{
-        height: 250px;
-      }
-    </style>
-    </style>
-  </head>
+  <title>Jquery-waiting</title>
+  <meta name="description" content="Creates loading/waiting mask over element">
 
-  <body>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
     <header>
-      <div class="inner">
-        <h1>Jquery-waiting</h1>
-        <h2>Creates loading/waiting mask over element</h2>
-        <a href="https://github.com/qschmick/jquery-waiting" class="button"><small>View project on</small> GitHub</a>
-      </div>
+      <h1 class="title">Jquery-waiting</h1>
     </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
+    <div id="container">
+      <p class="tagline">Creates loading/waiting mask over element</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/qschmick/jquery-waiting/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/qschmick/jquery-waiting/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/qschmick/jquery-waiting" class="code">View Jquery-waiting on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
           <h1>
-<a id="jquery-waiting" class="anchor" href="#jquery-waiting" aria-hidden="true"><span class="octicon octicon-link"></span></a>jquery-waiting</h1>
+<a id="jquery-waiting" class="anchor" href="#jquery-waiting" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="jquery-waiting" href="#jquery-waiting"></a>jquery-waiting</h1>
 
 <p>Creates loading/waiting mask over element</p>
 
@@ -79,124 +72,130 @@
 </table>
 
 <h2>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="examples" href="#examples"></a>Examples</h2>
 
-<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Creates a waiting masking and spinner over the element</span>
-  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting();</pre></div>
+<div><pre>  //Creates a waiting masking and spinner over the element
+  $('#elementID').waiting();</pre></div>
 
-<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Stops the spinner</span>
-  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting(<span class="pl-s1"><span class="pl-pds">'</span>pause<span class="pl-pds">'</span></span>);</pre></div>
+<div><pre>  //Stops the spinner
+  $('#elementID').waiting('pause');</pre></div>
 
-<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Starts the spinner back up</span>
-  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting(<span class="pl-s1"><span class="pl-pds">'</span>play<span class="pl-pds">'</span></span>);</pre></div>
+<div><pre>  //Starts the spinner back up
+  $('#elementID').waiting('play');</pre></div>
 
-<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Removes the spinner</span>
-  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting(<span class="pl-s1"><span class="pl-pds">'</span>done<span class="pl-pds">'</span></span>);</pre></div>
+<div><pre>  //Removes the spinner
+  $('#elementID').waiting('done');</pre></div>
 
 <h3>
-<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h3>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="options" href="#options"></a>Options</h3>
 
 <div>
-  <h3>Live Examples</h3>
-  <div class="container">
-    <div class="light">
+  <h3>
+<a id="live-examples" class="anchor" href="#live-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Live Examples</h3>
+  <div>
+    <div>
       Here is a basic div holding some text.
     </div>
-    <div class="tall light">
+    <div>
       Here is a long div holding some text.
     </div>
-    <div class="wide light">
+    <div>
       Here is a wide div holding some text.
     </div>
-    <br/>
-    <br/>
-    <button id="btnLight">Start/Stop</button>
-    <span>
-      These all have light set to true.<br/>
+    <br>
+    <br>
+    Start/Stop
+    
+      These all have light set to true.<br>
       <code>
         $('.light').waiting({light:true});
       </code>
-    </span>
     
-    <br/>
-    <br/>
+    
+    <br>
+    <br>
 
-    <div class="many">
+    <div>
       Here is a basic div holding some text.
     </div>
-    <div class="tall many">
+    <div>
       Here is a long div holding some text.
     </div>
-    <div class="wide many">
+    <div>
       Here is a wide div holding some text.
     </div>
-    <br/>
-    <br/>
-    <button id="btnMany">Start/Stop</button>
-    <span>
-      These all have several rings of dots set using quantity.<br/>
+    <br>
+    <br>
+    Start/Stop
+    
+      These all have several rings of dots set using quantity.<br>
       <code>
         $('.many').waiting({quantity:25, circleCount:3});
       </code>
-    </span>
-    <br/>
-    <br/>
-    <div class="small">
+    
+    <br>
+    <br>
+    <div>
       Here is a basic div holding some text.
     </div>
-    <div class="tall small">
+    <div>
       Here is a long div holding some text.
     </div>
-    <div class="wide small">
+    <div>
       Here is a wide div holding some text.
     </div>
-    <br/>
-    <br/>
-    <button id="btnSmall">Start/Stop</button>
-    <span>
-      These all have smaller rings using the size setting and the dots are larger using dotSize.<br/>
+    <br>
+    <br>
+    Start/Stop
+    
+      These all have smaller rings using the size setting and the dots are larger using dotSize.<br>
       <code>
         $('.small').waiting({size:25, dotSize:15});
       </code>
-    </span>
+    
   </div>
 </div>
-<br/>
-<br/>
+
+<p><br>
+<br></p>
+
 <div>
-  <h5>Or try your own combination:</h5>
-  <div class="container">
-    <div class="custom">
+  <h5>
+<a id="or-try-your-own-combination" class="anchor" href="#or-try-your-own-combination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Or try your own combination:</h5>
+  <div>
+    <div>
       Here is a basic div holding some text.
     </div>
-    <div class="tall custom">
+    <div>
       Here is a long div holding some text.
     </div>
-    <div class="wide custom">
+    <div>
       Here is a wide div holding some text.
     </div>
   </div>
-  <br/>
-  <br/>
+  <br>
+  <br>
   <table>
     <tr>
       <td>
         Size:
       </td>
       <td>
-        <select id="ddlCustomSize"></select>
+        
       </td>
       <td>
         Quantity:
       </td>
       <td>
-        <select id="ddlCustomQuantity"></select>
+        
       </td>
       <td>
         dotSize:
       </td>
       <td>
-        <select id="ddlCustomDotSize"></select>
+        
       </td>
     </tr>
     <tr>
@@ -204,19 +203,19 @@
         enableReverse:
       </td>
       <td>
-        <input type="checkbox" id="chkEnableReverse" />
+        
       </td>
       <td>
         waitMovementIncrement (clockwise):
       </td>
       <td>
-        <input type="checkbox" id="chkMovement" checked />
+        
       </td>
       <td>
         fullScreen (blocks whole page):
       </td>
       <td>
-        <input type="checkbox" id="chkFullscreen" />
+        
       </td>
     </tr>
     <tr>
@@ -224,19 +223,19 @@
         Speed:
       </td>
       <td>
-        <select id="ddlCustomSpeed"></select>
+        
       </td>
       <td>
         circleCount:
       </td>
       <td>
-        <select id="ddlCustomCircleCount"></select>
+        
       </td>
       <td>
         tailPercent:
       </td>
       <td>
-        <select id="ddlCustomTailPercent"></select>
+        
       </td>
     </tr>
     <tr>
@@ -244,12 +243,12 @@
         light (use light theme):
       </td>
       <td>
-        <input type="checkbox" id="chkLight" />
+        
       </td>
       <td colspan="4"></td>
     </tr>
   </table>
-  <button id="btnCustom">Start/Stop</button>
+  Start/Stop
 </div>
 
 <dl>
@@ -288,7 +287,8 @@
 </dl>
 
 <h2>
-<a id="future-endeavours" class="anchor" href="#future-endeavours" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future endeavours</h2>
+<a id="future-endeavours" class="anchor" href="#future-endeavours" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="future-endeavours" href="#future-endeavours"></a>Future endeavours</h2>
 
 <ul>
 <li>[ ] Move inline styles to css</li>
@@ -296,104 +296,26 @@
 <li>[ ] Add example page</li>
 <li>[X] Add documentation</li>
 </ul>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/qschmick/jquery-waiting/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/qschmick/jquery-waiting/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/qschmick/jquery-waiting"></a> is maintained by <a href="https://github.com/qschmick">qschmick</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+        </article>
       </div>
     </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/qschmick" class="avatar"><img src="https://avatars3.githubusercontent.com/u/5342767?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/qschmick">qschmick</a> maintains <a href="https://github.com/qschmick/jquery-waiting">Jquery-waiting</a></p>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="javascripts/jquery.waiting.js"></script>
-  <script type="text/javascript">
-    $(function(){
-      var light = false;
-      var many = false;
-      var small = false;
-      var custom = false;
-      $('#btnMany').click(function(){
-        if(many){
-          $('.many').waiting('done');
-        } else {
-          $('.many').waiting({quantity:25, circleCount:3});
-        } 
-        many = !many;
-      });
-      $('#btnLight').click(function(){
-        if(light){
-          $('.light').waiting('done');
-        } else {
-          $('.light').waiting({light:true});
-        } 
-        light = !light;
-      });
-      $('#btnSmall').click(function(){
-        if(small){
-          $('.small').waiting('done');
-        } else {
-          $('.small').waiting({size:25, dotSize:15});
-        } 
-        small = !small;
-      });
-      
-      $('#btnCustom').click(function(){
-        if(custom){
-          $('.container .custom').waiting('done');
-        } else {
-          var size = $('#ddlCustomSize').val();
-          var quantity = $('#ddlCustomQuantity').val();
-          var dotSize = $('#ddlCustomDotSize').val();
-          var enableReverse = $('#chkEnableReverse').is(':checked');
-          var movement = $('#chkMovement').is(':checked');
-          var fullScreen = $('#chkFullscreen').is(':checked');
-          var light = $('#chkLight').is(':checked');
-          var speed = $('#ddlCustomSpeed').val();
-          var circleCount = $('#ddlCustomCircleCount').val();
-          var tailPercent = $('#ddlCustomTailPercent').val();
-          $('.container .custom').waiting(
-            {
-              size:size,
-              quantity:quantity,
-              dotSize:dotSize,
-              enableReverse:enableReverse,
-              waitMovementIncrementer: movement ? 1 : -1,
-              light: light,
-              fullScreen: fullScreen,
-              speed: speed,
-              circleCount: circleCount,
-              tailPercent: tailPercent
-            }
-          );
-        } 
-        custom = !custom;
-      });
-      for(var i =1; i<=100; i++){
-        var three = i * 3;
-        $('#ddlCustomSize').append($('<option>', { three : three }).text(three));
-        $('#ddlCustomQuantity').append($('<option>', { i : i }).text(i));
-        $('#ddlCustomDotSize').append($('<option>', { i : i }).text(i));
-        if(i<21){
-          var fifty = i * 50;
-          $('#ddlCustomSpeed').append($('<option>', { fifty : fifty }).text(fifty));
-          $('#ddlCustomCircleCount').append($('<option>', { i : i }).text(i));
-          var perc = (100-(i*5))/100;
-          $('#ddlCustomTailPercent').append($('<option>', { perc : perc }).text(perc));
-        }
-       
-      }
-    });
-  </script>
-  </body>
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/qschmick/jquery-waiting/tarball/master" class="tar">tar</a><a href="https://github.com/qschmick/jquery-waiting/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
 </html>
