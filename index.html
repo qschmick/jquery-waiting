@@ -102,17 +102,17 @@
 <div>
   <h3>Live Examples</h3>
   <div class="container">
-    <div>
-      <div class="light">
-        Here is a basic div holding some text.
-      </div>
-      <div class="tall light">
-        Here is a long div holding some text.
-      </div>
-      <div class="wide light">
-        Here is a wide div holding some text.
-      </div>
+    <div class="light">
+      Here is a basic div holding some text.
     </div>
+    <div class="tall light">
+      Here is a long div holding some text.
+    </div>
+    <div class="wide light">
+      Here is a wide div holding some text.
+    </div>
+    <br/>
+    <br/>
     <button id="btnLight">Start/Stop</button>
     <span>
       These all have light set to true.<br/>
@@ -123,17 +123,18 @@
     
     <br/>
     <br/>
-    <div>
-      <div class="many">
-        Here is a basic div holding some text.
-      </div>
-      <div class="tall many">
-        Here is a long div holding some text.
-      </div>
-      <div class="wide many">
-        Here is a wide div holding some text.
-      </div>
+
+    <div class="many">
+      Here is a basic div holding some text.
     </div>
+    <div class="tall many">
+      Here is a long div holding some text.
+    </div>
+    <div class="wide many">
+      Here is a wide div holding some text.
+    </div>
+    <br/>
+    <br/>
     <button id="btnMany">Start/Stop</button>
     <span>
       These all have several rings of dots set using quantity.<br/>
@@ -143,17 +144,17 @@
     </span>
     <br/>
     <br/>
-    <div>
-      <div class="small">
-        Here is a basic div holding some text.
-      </div>
-      <div class="tall small">
-        Here is a long div holding some text.
-      </div>
-      <div class="wide small">
-        Here is a wide div holding some text.
-      </div>
+    <div class="small">
+      Here is a basic div holding some text.
     </div>
+    <div class="tall small">
+      Here is a long div holding some text.
+    </div>
+    <div class="wide small">
+      Here is a wide div holding some text.
+    </div>
+    <br/>
+    <br/>
     <button id="btnSmall">Start/Stop</button>
     <span>
       These all have smaller rings using the size setting and the dots are larger using dotSize.<br/>
@@ -243,20 +244,20 @@
         many = !many;
       });
       $('#btnLight').click(function(){
-        if(many){
+        if(light){
           $('.light').waiting('done');
         } else {
           $('.light').waiting({light:true});
         } 
-        many = !many;
+        light = !light;
       });
       $('#btnSmall').click(function(){
-        if(many){
+        if(small){
           $('.small').waiting('done');
         } else {
           $('.small').waiting({size:25, dotSize:15});
         } 
-        many = !many;
+        small = !small;
       });
     });
   </script>
