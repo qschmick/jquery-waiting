@@ -164,38 +164,38 @@
 <div>
   <h5>
 <a id="or-try-your-own-combination" class="anchor" href="#or-try-your-own-combination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Or try your own combination:</h5>
-  <div>
-    <div>
+  <div class="container">
+    <div class="custom">
       Here is a basic div holding some text.
     </div>
-    <div>
+    <div class="tall custom">
       Here is a long div holding some text.
     </div>
-    <div>
+    <div class="wide custom">
       Here is a wide div holding some text.
     </div>
   </div>
-  <br>
-  <br>
+  <br/>
+  <br/>
   <table>
     <tr>
       <td>
         Size:
       </td>
       <td>
-        
+        <select id="ddlCustomSize"></select>
       </td>
       <td>
         Quantity:
       </td>
       <td>
-        
+        <select id="ddlCustomQuantity"></select>
       </td>
       <td>
         dotSize:
       </td>
       <td>
-        
+        <select id="ddlCustomDotSize"></select>
       </td>
     </tr>
     <tr>
@@ -203,19 +203,19 @@
         enableReverse:
       </td>
       <td>
-        
+        <input type="checkbox" id="chkEnableReverse" />
       </td>
       <td>
         waitMovementIncrement (clockwise):
       </td>
       <td>
-        
+        <input type="checkbox" id="chkMovement" checked />
       </td>
       <td>
         fullScreen (blocks whole page):
       </td>
       <td>
-        
+        <input type="checkbox" id="chkFullscreen" />
       </td>
     </tr>
     <tr>
@@ -223,19 +223,19 @@
         Speed:
       </td>
       <td>
-        
+        <select id="ddlCustomSpeed"></select>
       </td>
       <td>
         circleCount:
       </td>
       <td>
-        
+        <select id="ddlCustomCircleCount"></select>
       </td>
       <td>
         tailPercent:
       </td>
       <td>
-        
+        <select id="ddlCustomTailPercent"></select>
       </td>
     </tr>
     <tr>
@@ -243,13 +243,12 @@
         light (use light theme):
       </td>
       <td>
-        
+        <input type="checkbox" id="chkLight" />
       </td>
       <td colspan="4"></td>
     </tr>
   </table>
-  Start/Stop
-</div>
+  <button id="btnCustom">Start/Stop</button>
 
 <dl>
   <dt>JQuery.waiting([options])</dt>
@@ -316,6 +315,86 @@
     <p class="name"></p>
   </div>
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="javascripts/jquery.waiting.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      var light = false;
+      var many = false;
+      var small = false;
+      var custom = false;
+      $('#btnMany').click(function(){
+        if(many){
+          $('.many').waiting('done');
+        } else {
+          $('.many').waiting({quantity:25, circleCount:3});
+        } 
+        many = !many;
+      });
+      $('#btnLight').click(function(){
+        if(light){
+          $('.light').waiting('done');
+        } else {
+          $('.light').waiting({light:true});
+        } 
+        light = !light;
+      });
+      $('#btnSmall').click(function(){
+        if(small){
+          $('.small').waiting('done');
+        } else {
+          $('.small').waiting({size:25, dotSize:15});
+        } 
+        small = !small;
+      });
+      
+      $('#btnCustom').click(function(){
+        if(custom){
+          $('.container .custom').waiting('done');
+        } else {
+          var size = $('#ddlCustomSize').val();
+          var quantity = $('#ddlCustomQuantity').val();
+          var dotSize = $('#ddlCustomDotSize').val();
+          var enableReverse = $('#chkEnableReverse').is(':checked');
+          var movement = $('#chkMovement').is(':checked');
+          var fullScreen = $('#chkFullscreen').is(':checked');
+          var light = $('#chkLight').is(':checked');
+          var speed = $('#ddlCustomSpeed').val();
+          var circleCount = $('#ddlCustomCircleCount').val();
+          var tailPercent = $('#ddlCustomTailPercent').val();
+          $('.container .custom').waiting(
+            {
+              size:size,
+              quantity:quantity,
+              dotSize:dotSize,
+              enableReverse:enableReverse,
+              waitMovementIncrementer: movement ? 1 : -1,
+              light: light,
+              fullScreen: fullScreen,
+              speed: speed,
+              circleCount: circleCount,
+              tailPercent: tailPercent
+            }
+          );
+        } 
+        custom = !custom;
+      });
+      for(var i =1; i<=100; i++){
+        var three = i * 3;
+        $('#ddlCustomSize').append($('<option>', { three : three }).text(three));
+        $('#ddlCustomQuantity').append($('<option>', { i : i }).text(i));
+        $('#ddlCustomDotSize').append($('<option>', { i : i }).text(i));
+        if(i<21){
+          var fifty = i * 50;
+          $('#ddlCustomSpeed').append($('<option>', { fifty : fifty }).text(fifty));
+          $('#ddlCustomCircleCount').append($('<option>', { i : i }).text(i));
+          var perc = (100-(i*5))/100;
+          $('#ddlCustomTailPercent').append($('<option>', { perc : perc }).text(perc));
+        }
+       
+      }
+    });
+  </script>
   
 </body>
 </html>
