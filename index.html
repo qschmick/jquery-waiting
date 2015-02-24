@@ -217,7 +217,7 @@
         fullScreen (blocks whole page):
       </td>
       <td>
-        <input type="checkbox" id="chkFullscreen" checked />
+        <input type="checkbox" id="chkFullscreen" />
       </td>
     </tr>
     <tr>
@@ -351,7 +351,7 @@
       
       $('#btnCustom').click(function(){
         if(custom){
-          $('.custom').waiting('done');
+          $('.container .custom').waiting('done');
         } else {
           var size = $('#ddlCustomSize').val();
           var quantity = $('#ddlCustomQuantity').val();
@@ -363,8 +363,7 @@
           var speed = $('#ddlCustomSpeed').val();
           var circleCount = $('#ddlCustomCircleCount').val();
           var tailPercent = $('#ddlCustomTailPercent').val();
-          
-          $('.custom').waiting(
+          $('.container .custom').waiting(
             {
               size:size,
               quantity:quantity,
