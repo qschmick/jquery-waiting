@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Jquery-waiting by qschmick</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Jquery-waiting</h1>
+        <h2>Creates loading/waiting mask over element</h2>
+        <a href="https://github.com/qschmick/jquery-waiting" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="jquery-waiting" class="anchor" href="#jquery-waiting" aria-hidden="true"><span class="octicon octicon-link"></span></a>jquery-waiting</h1>
+
+<p>Creates loading/waiting mask over element</p>
+
+<p>Tested on IE 7+ and FireFox. Not tested on Chrome or Safari yet.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Browser</th>
+<th align="right">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">IE 7, 8, 9</td>
+<td align="right">Works</td>
+</tr>
+<tr>
+<td align="left">IE 10 &amp; 11</td>
+<td align="right">Untested</td>
+</tr>
+<tr>
+<td align="left">FF31</td>
+<td align="right">Works</td>
+</tr>
+<tr>
+<td align="left">Chrome</td>
+<td align="right">Untested</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Creates a waiting masking and spinner over the element</span>
+  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting();</pre></div>
+
+<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Stops the spinner</span>
+  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting(<span class="pl-s1"><span class="pl-pds">'</span>pause<span class="pl-pds">'</span></span>);</pre></div>
+
+<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Starts the spinner back up</span>
+  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting(<span class="pl-s1"><span class="pl-pds">'</span>play<span class="pl-pds">'</span></span>);</pre></div>
+
+<div class="highlight highlight-JavaScript"><pre>  <span class="pl-c">//Removes the spinner</span>
+  $(<span class="pl-s1"><span class="pl-pds">'</span>#elementID<span class="pl-pds">'</span></span>).waiting(<span class="pl-s1"><span class="pl-pds">'</span>done<span class="pl-pds">'</span></span>);</pre></div>
+
+<h3>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<dl>
+  <dt>JQuery.waiting([options])</dt>
+  <dd>
+    <dl>
+      <dt>options</dt>
+      <dd>Type: <a href="http://api.jquery.com/Types/#PlainObject">PlainObject</a><br>
+      A set of key/value pairs that configure the Waiting widget. All settings are optional.</dd>
+      <dd>
+        <dl>
+          <dt>size (default: <code>0</code>)</dt>
+          <dd>Type: Int<br>Radius of spinner. If zero, or larger than target, spinner fills element. Can specify for element to be smaller than target.</dd>
+          <dt>quantity (default: <code>10</code>)</dt>
+          <dd>Type: Int<br>Specifies the number of dots to generate.</dd>
+          <dt>dotSize (default: <code>6</code>)</dt>
+          <dd>Type: Int<br>Specifies the radius of the dots to generate.</dd>
+          <dt>enableReverse (default: <code>true</code>)</dt>
+          <dd>Type: Boolean<br>If true clicking the element/mask reverses the spinner.</dd>
+          <dt>waitMovementIncrementer (default: <code>1</code>)</dt>
+          <dd>Type: Int<br>Determines the direction of the spinner. Runs clockwise be default. Negative is counter-clockwise.</dd>
+          <dt>light (default: <code>false</code>)</dt>
+          <dd>Type: Boolean<br>Determines is the light/blue color theme is used or not.</dd>
+          <dt>fullScreen (default: <code>false</code>)</dt>
+          <dd>Type: Boolean<br>Determines if the mask should target the entire screen instead of just the target element.</dd>
+          <dt>speed (default: <code>100</code>)</dt>
+          <dd>Type: Int<br>Number of milliseconds between color changes. Lower number equates to faster changes.</dd>
+          <dt>circleCount (default: <code>1</code>)</dt>
+          <dd>Type: Int<br>Determines the number of circles to display on target element. Each circle of dots will contain the same number of dots specified by quantity.</dd>
+          <dt>tailPercent (default: <code>0.25</code>)</dt>
+          <dd>Type: Double<br>Determines the percent of dots to use can trailing gradients.</dd>
+        </dl>
+      </dd>
+    </dl>
+  </dd>
+</dl>
+
+<h2>
+<a id="future-endeavours" class="anchor" href="#future-endeavours" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future endeavours</h2>
+
+<ul>
+<li>[ ] Move inline styles to css</li>
+<li>[ ] Finish browser testing</li>
+<li>[ ] Add example page</li>
+<li>[X] Add documentation</li>
+</ul>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/qschmick/jquery-waiting/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/qschmick/jquery-waiting/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/qschmick/jquery-waiting"></a> is maintained by <a href="https://github.com/qschmick">qschmick</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
