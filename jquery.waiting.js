@@ -1,6 +1,6 @@
 (function($){
 
-    $.waiting.defaultSettings = {
+    var defaultSettings = {
         size: 0,
         quantity: 10,
         dotSize: 6,
@@ -10,7 +10,7 @@
         fullScreen: false,
         speed: 100,
         circleCount: 1,
-        tailPercent: .25
+        tailPercent: 0.25
     };
     
     $.waiting = function(el, options){
@@ -38,7 +38,7 @@
         }
         
         base.init = function(){
-            base.userSettings = $.extend({},$.waiting.defaultOptions, options);
+            base.userSettings = $.extend({},defaultSettings, options);
             base.position = {top:0,left:0,height:0,width:0};
             base.originalPosition = base.position;
             base.intervalID = 0;
@@ -88,7 +88,7 @@
           $(window).resize(function(){
             base.waitSizing();
           });
-        }
+        };
         
         base.waitingTargetMoved = function(){
           var hidden = base.$el.is(':hidden');
@@ -126,7 +126,7 @@
           base.getLeftTopHeightWidth();
           base.resetPosition();
           
-          if(size === 0 || (size > (base.position.height - dotSize) || size > (base.position.width - dotSize)){
+          if(size === 0 || (size > (base.position.height - dotSize) || size > (base.position.width - dotSize))){
             var boxSize = base.userSettings.size;
             if(base.userSettings.fullScreen){
               var tempHeight = $('body').outerHeight();
@@ -166,7 +166,7 @@
           base.$wait.children('div').each(function(i,e){
             $this = $(this);
             var order = 1 * $this.attr('loopOrder');
-            var incrementer = base.userSettings.waitMovementIncrementer * 1;
+             var incrementer = (base.userSettings.waitMovementIncrementer * 1) > 0 ? 1 : -1;
             order += incrementer;
             if (order > base.loopMax){
               order = 0;
@@ -192,7 +192,7 @@
             } else if (order <= tailSections * 4){
               color = (upwards ? (useLight ? '#3e84ce' : '#888') : (useLight ? '#fafcfe' : '#ddd'));
             }
-            $this[0].style.backgroundcolor = color;
+            $this.css("backgroundColor" ,color);
           });
         };
         
