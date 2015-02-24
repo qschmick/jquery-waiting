@@ -121,30 +121,27 @@
           return base.position;
         };
         base.waitSizing = function(){
-          var size = base.userSettings.size;
-          var dotSize = base.userSettings.dotSize;
-          
-          base.getLeftTopHeightWidth();
-          base.resetPosition();
-          
-          if(size === 0 || (size > (base.position.height - dotSize) || size > (base.position.width - dotSize))){
-            var boxSize = base.userSettings.size;
-            var maskHeight = base.userSettings.size;
-            var maskWidth = base.userSettings.size;
-            if(base.userSettings.fullScreen){
-              maskHeight = $('body').outerHeight();
-              maskWidth = $('body').outerWidth();
-              boxSize = Math.min(tempHeight, tempWidth) - dotSize;
-            } else {
-              boxSize = (base.position.height < base.position.width ? base.position.height : base.position.width) - dotSize;
-              maskWidth = base.position.width;
-              maskHeight = base.position.height;
+            var size = base.userSettings.size;
+            var dotSize = base.userSettings.dotSize;
+              
+            base.getLeftTopHeightWidth();
+            base.resetPosition();
+            var maskHeight = base.position.height;
+            var maskWidth = base.position.width;
+            if(size === 0 || (size > (base.position.height - dotSize) || size > (base.position.width - dotSize))){
+                var boxSize = base.userSettings.size;
+                if(base.userSettings.fullScreen){
+                    maskHeight = $('body').outerHeight();
+                    maskWidth = $('body').outerWidth();
+                    boxSize = Math.min(tempHeight, tempWidth) - dotSize;
+                } else {
+                    boxSize = (base.position.height < base.position.width ? base.position.height : base.position.width) - dotSize;
+                }
+                size = boxSize;
             }
-            size = boxSize;
-          }
-          base.$mask.height(maskHeight).width(maskWidth).offset({top:base.position.top, left:base.position.left});
-          base.$wait.height(size).width(size).offset({top:(base.position.top + (base.position.height/2 - size/2)), left:(base.position.left+ (base.position.width/2 - size/2))}).html('');
-          base.drawCircles(size);
+            base.$mask.height(maskHeight).width(maskWidth).offset({top:base.position.top, left:base.position.left});
+            base.$wait.height(size).width(size).offset({top:(base.position.top + (base.position.height/2 - size/2)), left:(base.position.left+ (base.position.width/2 - size/2))}).html('');
+            base.drawCircles(size);
         };
         
         base.drawCircles = function(size){
