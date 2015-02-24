@@ -107,8 +107,8 @@
           if(base.userSettings.fullScreen){
             base.position.height = $(window).outerHeight();
             base.position.width = $(window).outerWidth();
-            base.position.top = $(window)[0].pageYOffset();
-            base.position.left = $(window)[0].pageXOffset();
+            base.position.top = window.pageYOffset;
+            base.position.left = window.pageXOffset;
           } else {
             base.position.height = base.$el.outerHeight();
             base.position.width = base.$el.outerWidth();
